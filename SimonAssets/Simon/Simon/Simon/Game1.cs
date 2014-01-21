@@ -25,7 +25,7 @@ namespace Simon
         Texture2D simon;
         Texture2D cursor;
         Random rand;
-        Turn turn = Turn.PLAYER;
+        Turn turn = Turn.COMPUTER;
 
         List<SimonColors> moves;   // Hint
         int PlayBackIndex = 0;  // Index into moves list
@@ -107,12 +107,15 @@ namespace Simon
                 moves.Add((SimonColors)rand.Next(0, 4));
                  turn = Turn.PLAYBACK;
                  PlayBackIndex = 0;
+                 turntime = 0;
             }
             else if (turn == Turn.PLAYBACK)
             {
                 // TODO: Play one move every 750ms.. 
                 // DO NOT PLAY BACK ALL MOVES AT ONCE
 
+                PlayBackIndex++;
+                    Lit = moves{PlayBackIndex}
                 if (PlayBackIndex == moves.Count)
                 {
                     turn = Turn.PLAYER;
